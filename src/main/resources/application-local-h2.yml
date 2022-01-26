@@ -1,0 +1,30 @@
+
+logging.level:
+  com.vedubox: DEBUG
+  root: INFO  # DEBUG > INFO > ERROR
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:notification-service
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+  security:
+    user:
+      name: test
+      password: test

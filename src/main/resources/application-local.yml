@@ -1,0 +1,23 @@
+
+server.port: 8080
+
+logging.level:
+  com.vedubox: DEBUG
+  root: ERROR  # DEBUG > INFO > ERROR
+
+spring:
+  datasource:
+    driver-class-name=com: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databaseName=notification-service
+    username: sa
+    password: P@ssword66
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  #create-drop | validate | none
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: true
+
+default-message: <p><b>User:</>{name}</p>

@@ -1,0 +1,22 @@
+
+server.port: ${PORT:8080}
+
+logging.level.root: ${LOGGING_LEVEL_ROOT:ERROR}
+
+spring:
+  application.name: notification-service
+  datasource:
+    driver-class-name=com: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: ${SQL_SERVER_URL}
+    username: ${SQL_SERVER_USERNAME}
+    password: ${SQL_SERVER_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: false
+
+default-message: <p><b>User:</>{name}</p>
